@@ -69,4 +69,19 @@ public class CalculatorTest {
         assertThat(result).isEqualTo(2.5);
     }
 
+    @Test
+    @DisplayName("나누는 값이 0이면 에러를 반환한다.")
+    void divide_validate() {
+        assertThatThrownBy(() -> calculator.divide(4,0))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("나누는 값이 0일 수 없습니다.");
+    }
+
+    @Test
+    @DisplayName("입력된 값이 숫자가 아니면 에러를 반환한다.")
+    void input_valid() {
+
+    }
+
+
 }
