@@ -1,8 +1,17 @@
 public class Calculator {
 
+    public int add(String text){
+        if (text == null || text.isEmpty()){
+            return 0;
+        }
 
-    public int add(int a, int b){
-        return a + b;
+        String[] values = text.split(",");
+        int sum = 0;
+        for(String value : values){
+            sum += Integer.parseInt(value);
+        }
+
+        return sum;
     }
 
     public int subtract(int a, int b){
