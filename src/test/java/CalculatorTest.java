@@ -2,12 +2,11 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CalculatorTest {
 
@@ -21,8 +20,8 @@ public class CalculatorTest {
     @Test
     @DisplayName("받은 문자열이 null 또는 빈문자일 경우 0을 반환한다.")
     void test_isValid() {
-        assertFalse(calculator.isBlank(null));
-        assertFalse(calculator.isBlank(""));
+        assertTrue(calculator.isBlank(null));
+        assertTrue(calculator.isBlank(""));
     }
 
     @Test

@@ -1,7 +1,7 @@
 public class Calculator {
 
     public int add(String text){
-        if (text == null || text.isEmpty()){
+        if (isBlank(text)){
             return 0;
         }
 
@@ -15,10 +15,9 @@ public class Calculator {
     }
 
     public boolean isBlank(String text){
-        if (text == null || text.isEmpty()){
-            return false;
-        }
-        return true;
+        if (text == null || text.isEmpty())
+            return true;
+        return false;
     }
 
     public String[] splitString(String text){
