@@ -1,6 +1,6 @@
 public class Calculator {
 
-    public int add_(String text){
+    public int result(String text){
         if (isBlank(text)){
             return 0;
         }
@@ -10,8 +10,15 @@ public class Calculator {
         for(String value : values){
             sum += Integer.parseInt(value);
         }
-
         return sum;
+    }
+
+    public int strToIntCalculator(String[] values){
+        int result = toInt(values[0]);
+        for(int i=0; i<values.length-2;i += 2){
+            result = calculate(result, values[i+1].charAt(0), toInt(values[i+2]));
+        }
+        return result;
     }
 
     public boolean isBlank(String text){
