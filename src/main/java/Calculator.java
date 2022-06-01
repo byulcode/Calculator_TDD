@@ -5,7 +5,7 @@ public class Calculator {
             return 0;
         }
 
-        String[] values = text.split(",");
+        String[] values = splitString(text);
         int sum = 0;
         for(String value : values){
             sum += Integer.parseInt(value);
@@ -13,6 +13,20 @@ public class Calculator {
 
         return sum;
     }
+
+    public boolean isBlank(String text){
+        if (text == null || text.isEmpty()){
+            return false;
+        }
+        return true;
+    }
+
+    public String[] splitString(String text){
+        return text.split(" ");
+    }
+
+
+
 
     public int subtract(int a, int b){
         return a - b;

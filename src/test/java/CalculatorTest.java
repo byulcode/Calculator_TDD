@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class CalculatorTest {
 
@@ -19,9 +20,9 @@ public class CalculatorTest {
 
     @Test
     @DisplayName("받은 문자열이 null 또는 빈문자일 경우 0을 반환한다.")
-    void add_null_empty(){
-        assertEquals(0, calculator.add(null));
-        assertEquals(0,calculator.add(""));
+    void test_isValid() {
+        assertFalse(calculator.isBlank(null));
+        assertFalse(calculator.isBlank(""));
     }
 
     @Test
@@ -30,11 +31,7 @@ public class CalculatorTest {
         assertEquals(1, calculator.add("1"));
     }
 
-    @Test
-    @DisplayName("숫자 두개를 쉼표(,) 구분자로 입력할 경우 두 숫자의 합을 반환한다.")
-    void add_by_comma(){
-        assertEquals(3, calculator.add("1,2"));
-    }
+
 
 
 

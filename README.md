@@ -1,9 +1,8 @@
 ### 문자열 계산기 만들기
 
 구현해야 할 기능
-- [ ] splitString : 문자열을 입력받아 문자 단위로 나눠 담은 배열을 리턴
-- [ ] NumberList : 분리된 문자열 배열을 받아 List에 숫자만 담아 리턴
-- [ ] OperatorList : 분리된 문자열 받아 List에 연산자만 담아 리턴
+- [X] splitString : 문자열을 입력받아 문자 단위로 나눠 담은 배열을 리턴
+- [X] isBlank : 입력받은 문자열이 빈값이나 null 값인 경우 false 리턴
   
 - [X] add : 입력받은 두 수의 합을 구해줌
 - [X] subtract : 입력받은 두 수의 차를 구해줌
