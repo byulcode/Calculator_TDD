@@ -1,16 +1,13 @@
+import java.util.Scanner;
+
 public class Calculator {
 
     public int result(String text){
-        if (isBlank(text)){
-            return 0;
+        if(isBlank(text)){
+            throw new IllegalArgumentException("빈 값을 입력받을 수 없습니다.");
         }
-
-        String[] values = splitString(text);
-        int sum = 0;
-        for(String value : values){
-            sum += Integer.parseInt(value);
-        }
-        return sum;
+        int result = strToIntCalculator(splitString(text));
+        return result;
     }
 
     public int strToIntCalculator(String[] values){

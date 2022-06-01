@@ -24,6 +24,7 @@ public class CalculatorTest {
         assertTrue(calculator.isBlank(""));
     }
 
+
     @Test
     @DisplayName("두 수와 연산자를 입력하면 두 수를 연산자에 따라 계산한 값을 반환한다.")
     void test_calculate(){
@@ -40,13 +41,15 @@ public class CalculatorTest {
     }
 
     @Test
-    @DisplayName("나누는 값이 0이면 에러를 반환한다.")
+    @DisplayName("")
     void divide_validate() {
         assertThatThrownBy(() ->
                 calculator.divide(4,0))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("나누는 값이 0일 수 없습니다.");
     }
+
+    
 
     @Test
     @DisplayName("4에서 2를 뺀 값을 반환한다")
