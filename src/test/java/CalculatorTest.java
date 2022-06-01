@@ -25,15 +25,10 @@ public class CalculatorTest {
     }
 
     @Test
-    @DisplayName("숫자 하나를 문자열로 입력한 경우 해당 숫자를 반환한다.")
-    void add_one_num(){
-        assertEquals(1, calculator.add("1"));
+    @DisplayName("두 수와 연산자를 입력하면 두 수를 더한 값을 반환한다.")
+    void test_calculate_add(){
+        assertEquals(3,calculator.calculate(1,'+', 2));
     }
-
-
-
-
-
 
 
     @Test
@@ -85,7 +80,7 @@ public class CalculatorTest {
     @DisplayName("두 수를 나눈 값을 반환한다.")
     void divide_5_2(){
         double result = calculator.divide(5, 2);
-        assertThat(result).isEqualTo(2.5);
+        assertThat(result).isEqualTo(2);
     }
 
 
