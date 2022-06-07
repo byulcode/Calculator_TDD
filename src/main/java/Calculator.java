@@ -10,18 +10,18 @@ public class Calculator {
         return result;
     }
 
+    public boolean isBlank(String text){
+        if (text == null || text.isEmpty())
+            return true;
+        return false;
+    }
+
     public int strToIntCalculator(String[] values){
         int result = toInt(values[0]);
         for(int i=0; i<values.length-2;i += 2){
             result = calculate(result, values[i+1].charAt(0), toInt(values[i+2]));
         }
         return result;
-    }
-
-    public boolean isBlank(String text){
-        if (text == null || text.isEmpty())
-            return true;
-        return false;
     }
 
     public String[] splitString(String text){
