@@ -1,12 +1,14 @@
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 
-import static org.assertj.core.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CalculatorTest {
 
@@ -18,87 +20,72 @@ public class CalculatorTest {
     }
 
     @Test
-    @DisplayName("받은 문자열이 null 또는 빈문자일 경우 0을 반환한다.")
-    void test_isValid() {
-        assertTrue(calculator.isBlank(null));
-        assertTrue(calculator.isBlank(""));
-    }
-
-
-    @Test
     @DisplayName("두 수와 연산자를 입력하면 두 수를 연산자에 따라 계산한 값을 반환한다.")
     void test_calculate(){
-        assertEquals(3,calculator.calculate(1,'+', 2));
-        assertEquals(1,calculator.calculate(3,'-', 2));
+        assertEquals(3, calculator.calculate(1, '+', 2));
+        assertEquals(1, calculator.calculate(3, '-', 2));
     }
 
     @Test
     @DisplayName("split 된 문자열 배열을 입력하면 계산하여 결과를 반환한다.")
-    void strToIntCalculator(){
-        assertEquals(3,calculator.strToIntCalculator(new String[]{"1","+","2"}));
-        assertEquals(8,calculator.strToIntCalculator(new String[]{"4","*","2"}));
-        assertEquals(6,calculator.strToIntCalculator(new String[]{"4","*","2","-","2"}));
+    void strToIntCalculator() {
+        assertEquals(3, calculator.strToIntCalculator(new String[]{"1", "+", "2"}));
+        assertEquals(8, calculator.strToIntCalculator(new String[]{"4", "*", "2"}));
+        assertEquals(6, calculator.strToIntCalculator(new String[]{"4", "*", "2", "-", "2"}));
     }
 
     @Test
     @DisplayName("")
     void divide_validate() {
         assertThatThrownBy(() ->
-                calculator.divide(4,0))
+                calculator.divide(4, 0))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("나누는 값이 0일 수 없습니다.");
     }
 
-    
 
     @Test
     @DisplayName("4에서 2를 뺀 값을 반환한다")
-    void subtract_4_2(){
+    void subtract_4_2() {
         int result = calculator.subtract(4, 2);
         assertThat(result).isEqualTo(2);
     }
 
     @Test
     @DisplayName("25에서 5를 뺀 값을 반환한다")
-    void subtract_25_5(){
+    void subtract_25_5() {
         int result = calculator.subtract(25, 5);
         assertThat(result).isEqualTo(20);
     }
 
     @Test
     @DisplayName("3와 4를 곱한 값을 반환한다")
-    void multiply_3_4(){
+    void multiply_3_4() {
         int result = calculator.multiply(3, 4);
         assertThat(result).isEqualTo(12);
     }
 
     @Test
     @DisplayName("5와 2를 곱한 값을 반환한다")
-    void multiply_5_2(){
+    void multiply_5_2() {
         int result = calculator.multiply(5, 2);
         assertThat(result).isEqualTo(10);
     }
 
     @Test
     @DisplayName("두 수를 나눈 값을 반환한다.")
-    void divide_4_2(){
+    void divide_4_2() {
         double result = calculator.divide(4, 2);
         assertThat(result).isEqualTo(2);
     }
 
     @Test
     @DisplayName("두 수를 나눈 값을 반환한다.")
-    void divide_5_2(){
+    void divide_5_2() {
         double result = calculator.divide(5, 2);
         assertThat(result).isEqualTo(2);
     }
 
-
-    @Test
-    @DisplayName("입력된 값이 숫자가 아니면 에러를 반환한다.")
-    void input_valid() {
-
-    }
 
 
 }
