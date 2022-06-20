@@ -4,7 +4,7 @@ public class Calculator {
         if (text == null || text.isEmpty()) {
             throw new IllegalArgumentException("빈 값을 입력받을 수 없습니다.");
         }
-        int result = strToIntCalculator(splitString(text));
+        int result = strToIntCalculator(text.split(" "));
         return result;
     }
 
@@ -14,10 +14,6 @@ public class Calculator {
             calculateResult = calculate(calculateResult, values[i + 1].charAt(0), toInt(values[i + 2]));
         }
         return calculateResult;
-    }
-
-    public String[] splitString(String text) {
-        return text.split(" ");
     }
 
     public int toInt(String strNum) {
