@@ -4,20 +4,15 @@ public class Calculator {
         if (text == null || text.isEmpty()) {
             throw new IllegalArgumentException("빈 값을 입력받을 수 없습니다.");
         }
-        int result = strToIntCalculator(text.split(" "));
-        return result;
+        return strToIntCalculator(text.split(" "));
     }
 
     public int strToIntCalculator(String[] values) {
-        int calculateResult = toInt(values[0]);
+        int calculateResult = Integer.parseInt(values[0]);
         for (int i = 0; i < values.length - 2; i += 2) {
-            calculateResult = calculate(calculateResult, values[i + 1].charAt(0), toInt(values[i + 2]));
+            calculateResult = calculate(calculateResult, values[i + 1].charAt(0), Integer.parseInt(values[i + 2]));
         }
         return calculateResult;
-    }
-
-    public int toInt(String strNum) {
-        return Integer.parseInt(strNum);
     }
 
     public int calculate(int firstNum, char operator, int secNum) {
