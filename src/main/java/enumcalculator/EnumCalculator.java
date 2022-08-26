@@ -3,22 +3,22 @@ package enumcalculator;
 import java.util.function.BiFunction;
 
 enum OperatorType {
-    PLUS('+') {
+    PLUS("+") {
         public double calculate(double num1, double num2) {
             return num1 + num2;
         }
     },
-    MINUS('-') {
+    MINUS("-") {
         public double calculate(double num1, double num2) {
             return num1 - num2;
         }
     },
-    MULTIPLY('*') {
+    MULTIPLY("*") {
         public double calculate(double num1, double num2) {
             return num1 * num2;
         }
     },
-    DIVIDE('/') {
+    DIVIDE("/") {
         public double calculate(double num1, double num2) {
             if (num2 == 0) {
                 throw new IllegalArgumentException("나누는 값이 0이 될 수 없습니다.");
@@ -26,13 +26,14 @@ enum OperatorType {
             return num1 / num2;
         }
     };
-    private char enumOperator;
+    private String enumOperator;
 
-    OperatorType(char enumOperator) {
+    OperatorType(String enumOperator) {
         this.enumOperator = enumOperator;
     }
 
     public abstract double calculate(double num1, double num2);
+
 
 
 }
