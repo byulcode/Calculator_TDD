@@ -34,7 +34,7 @@ enum OperatorType {
 
     public abstract double calculate(double num1, double num2);
 
-    public OperatorType decideOperation(String enumOperator) {
+    public static OperatorType decideOperation(String enumOperator) {
         if (enumOperator.equals(PLUS.enumOperator)) {
             return PLUS;
         }
@@ -49,10 +49,15 @@ enum OperatorType {
         }
         throw new IllegalArgumentException("사칙연산의 기호가 아닙니다.");
     }
-
-
 }
 
 public class EnumCalculator {
-
+    public double result(String text){
+        if(text == null || text.isEmpty()){
+            throw new IllegalArgumentException("빈 값을 입력할 수 없습니다.");
+        }
+        String[] value = text.split(" ");
+        OperatorType operatorType = OperatorType.decideOperation(value[1]);
+        return operatorType.calculate(Double.parseDouble(value[0]), Double.parseDouble(value[0]));
+    }
 }
