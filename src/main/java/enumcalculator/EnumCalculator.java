@@ -34,6 +34,21 @@ enum OperatorType {
 
     public abstract double calculate(double num1, double num2);
 
+    public OperatorType decideOperation(String enumOperator) {
+        if (enumOperator.equals(PLUS.enumOperator)) {
+            return PLUS;
+        }
+        if (enumOperator.equals(MINUS.enumOperator)) {
+            return MINUS;
+        }
+        if (enumOperator.equals(MULTIPLY.enumOperator)) {
+            return MULTIPLY;
+        }
+        if (enumOperator.equals(DIVIDE.enumOperator)) {
+            return DIVIDE;
+        }
+        throw new IllegalArgumentException("사칙연산의 기호가 아닙니다.");
+    }
 
 
 }
