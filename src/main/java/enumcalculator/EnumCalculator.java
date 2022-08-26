@@ -1,5 +1,6 @@
 package enumcalculator;
 
+import java.util.Scanner;
 import java.util.function.BiFunction;
 
 enum OperatorType {
@@ -58,6 +59,7 @@ public class EnumCalculator {
         }
         String[] value = text.split(" ");
         OperatorType operatorType = OperatorType.decideOperation(value[1]);
-        return operatorType.calculate(Double.parseDouble(value[0]), Double.parseDouble(value[0]));
+        return operatorType.calculate(Double.parseDouble(value[0]), Double.parseDouble(value[2]));
     }
+
 }
