@@ -62,4 +62,8 @@ public class EnumCalculator {
         return operatorType.calculate(Double.parseDouble(value[0]), Double.parseDouble(value[2]));
     }
 
+    public double calculateOperation(String[] values){
+        return 9;
+    }
+
 }

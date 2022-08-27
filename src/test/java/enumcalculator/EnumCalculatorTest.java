@@ -21,4 +21,13 @@ class EnumCalculatorTest {
         double sum = enumCalculator.result("7 + 4");
         assertThat(sum).isEqualTo(11);
     }
+
+    @Test
+    @DisplayName("7과 4를 뺀 값을 반환한다.")
+    void testCalculateOperation_7_4(){
+        String[] sentence = {"7", "-", "4"};
+        double res = enumCalculator.calculateOperation(sentence);
+        assertThat(res).isEqualTo(3);
+    }
 }
+
