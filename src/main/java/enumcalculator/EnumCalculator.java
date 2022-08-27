@@ -1,8 +1,5 @@
 package enumcalculator;
 
-import java.util.Scanner;
-import java.util.function.BiFunction;
-
 enum OperatorType {
     PLUS("+") {
         public double calculate(double num1, double num2) {
@@ -57,9 +54,7 @@ public class EnumCalculator {
         if (text == null || text.isEmpty()) {
             throw new IllegalArgumentException("빈 값을 입력할 수 없습니다.");
         }
-        String[] value = text.split(" ");
-        OperatorType operatorType = OperatorType.decideOperation(value[1]);
-        return operatorType.calculate(Double.parseDouble(value[0]), Double.parseDouble(value[2]));
+        return calculateOperation(text.split(" "));
     }
 
     public double calculateOperation(String[] values) {
