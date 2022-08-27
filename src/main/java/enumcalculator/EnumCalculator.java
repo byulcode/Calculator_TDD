@@ -53,8 +53,8 @@ enum OperatorType {
 }
 
 public class EnumCalculator {
-    public double result(String text){
-        if(text == null || text.isEmpty()){
+    public double result(String text) {
+        if (text == null || text.isEmpty()) {
             throw new IllegalArgumentException("빈 값을 입력할 수 없습니다.");
         }
         String[] value = text.split(" ");
@@ -62,8 +62,9 @@ public class EnumCalculator {
         return operatorType.calculate(Double.parseDouble(value[0]), Double.parseDouble(value[2]));
     }
 
-    public double calculateOperation(String[] values){
-        return 9;
+    public double calculateOperation(String[] values) {
+        OperatorType operatorType = OperatorType.decideOperation(values[1]);
+        return operatorType.calculate(Double.parseDouble(values[0]), Double.parseDouble(values[2]));
     }
 
 }
