@@ -30,7 +30,7 @@ enum OperatorType {
         this.enumOperator = enumOperator;
     }
 
-    public abstract double calculate(double num1, double num2);
+    abstract double calculate(double num1, double num2);
 
     public static OperatorType decideOperation(String enumOperator) {
         if (enumOperator.equals(PLUS.enumOperator)) {
@@ -57,7 +57,7 @@ public class EnumCalculator {
         return calculateOperation(text.split(" "));
     }
 
-    public double calculateOperation(String[] values) {
+    double calculateOperation(String[] values) {
         OperatorType operatorType = OperatorType.decideOperation(values[1]);
         return operatorType.calculate(Double.parseDouble(values[0]), Double.parseDouble(values[2]));
     }
