@@ -1,57 +1,30 @@
 package enumcalculator;
 
+import java.util.function.BiFunction;
+
 enum OperatorType {
-    PLUS("+") {
-        public double calculate(double num1, double num2) {
-            return num1 + num2;
-        }
-    },
-    MINUS("-") {
-        public double calculate(double num1, double num2) {
-            return num1 - num2;
-        }
-    },
-    MULTIPLY("*") {
-        public double calculate(double num1, double num2) {
-            return num1 * num2;
-        }
-    },
-    DIVIDE("/") {
-        public double calculate(double num1, double num2) {
+    PLUS("+", (num1, num2) -> num1 + num2),
+    MINUS("-", (num1, num2) -> num1 + num2),
+    MULTIPLY("*", (num1, num2) -> num1 + num2),
+    DIVIDE("/", (num1, num2) -> {
             if (num2 == 0) {
-                throw new IllegalArgumentException("나누는 값이 0이 될 수 없습니다.");
-            }
+            throw new IllegalArgumentException("나누는 값이 0이 될 수 없습니다.");
+        }
             return num1 / num2;
-        }
-    };
+    });
+
     private String enumOperator;
+    private BiFunction<Integer, Integer, Integer> expression;
 
-    OperatorType(String enumOperator) {
+    OperatorType(String enumOperator, BiFunction<Integer, Integer, Integer> expression) {
         this.enumOperator = enumOperator;
-    }
-
-    abstract double calculate(double num1, double num2);
-
-    public static OperatorType decideOperation(String enumOperator) {
-        if (enumOperator.equals(PLUS.enumOperator)) {
-            return PLUS;
-        }
-        if (enumOperator.equals(MINUS.enumOperator)) {
-            return MINUS;
-        }
-        if (enumOperator.equals(MULTIPLY.enumOperator)) {
-            return MULTIPLY;
-        }
-        if (enumOperator.equals(DIVIDE.enumOperator)) {
-            return DIVIDE;
-        }
-        throw new IllegalArgumentException("사칙연산의 기호가 아닙니다.");
+        this.expression = expression;
     }
 }
 
 public class EnumCalculator {
     public double result(String text) {
-        if (text == null || text.isEmpty()) {
+     /*   if (text == null || text.isEmpty()) {
             throw new IllegalArgumentException("빈 값을 입력할 수 없습니다.");
         }
         return calculateOperation(text.split(" "));
@@ -60,6 +33,7 @@ public class EnumCalculator {
     double calculateOperation(String[] values) {
         OperatorType operatorType = OperatorType.decideOperation(values[1]);
         return operatorType.calculate(Double.parseDouble(values[0]), Double.parseDouble(values[2]));
+    }*/
+        return 0;
     }
-
 }
