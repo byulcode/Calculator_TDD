@@ -1,32 +1,37 @@
 package enumcalculator;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class EnumCalculatorTest {
-
-    private EnumCalculator enumCalculator;
-
-    @BeforeEach
-    public void setup() {
-        enumCalculator = new EnumCalculator();
-    }
-
-    @Test
-    @DisplayName("7과 4를 더한 값을 반환한다")
-    void testResult_7_4() {
-        double sum = enumCalculator.result("7 + 4");
-        assertThat(sum).isEqualTo(11);
-    }
-
-    @Test
+    /*@Test
     @DisplayName("'+' 연산자를 입력하면 PLUS상수를 반환한다")
-    void testFindOperator(){
-        OperatorType operatorType = OperatorType.PLUS;
-        assertThat(operatorType.findOperator("+")).isEqualTo(operatorType);
+    void testFindOperator() {
+        assertThat(OperatorType.findOperator("+")).isEqualTo(OperatorType.PLUS);
+    }
+*/
+    @Test
+    @DisplayName("7 - 5 연산 값을 반환")
+    void testFindOperator() {
+        assertThat(OperatorType.operationResult(7, "-", 5)).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("7 - 5 연산 값을 반환")
+    void testOperation_7_5() {
+        assertThat(OperatorType.operationResult(7, "-", 5)).isEqualTo(2);
+    }
+
+    @Test
+    @DisplayName("")
+    void divide_validate() {
+        assertThatThrownBy(() ->
+                OperatorType.operationResult(4,"/", 0))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("나누는 값이 0이 될 수 없습니다.");
     }
 }
 
