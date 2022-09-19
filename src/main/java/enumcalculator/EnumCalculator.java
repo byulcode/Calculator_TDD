@@ -1,5 +1,6 @@
 package enumcalculator;
 
+import java.util.Arrays;
 import java.util.function.BiFunction;
 
 enum OperatorType {
@@ -19,6 +20,13 @@ enum OperatorType {
     OperatorType(String enumOperator, BiFunction<Integer, Integer, Integer> expression) {
         this.enumOperator = enumOperator;
         this.expression = expression;
+    }
+
+    OperatorType findOperator(String operator){
+        return Arrays.stream(values())
+                .filter(operatorType -> operatorType.enumOperator.equals(operator))
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException("연산자를 찾을 수 없습니다."));
     }
 }
 
