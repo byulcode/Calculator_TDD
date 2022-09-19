@@ -23,19 +23,10 @@ class EnumCalculatorTest {
     }
 
     @Test
-    @DisplayName("7과 4를 뺀 값을 반환한다.")
-    void testCalculateOperation_7_4() {
-        String[] sentence = {"7", "-", "4"};
-        double res = enumCalculator.calculateOperation(sentence);
-        assertThat(res).isEqualTo(3);
-    }
-
-    @Test
-    @DisplayName("7과 4를 뺀 값을 반환한다.")
-    void testCalculateOperation_5_2() {
-        String[] sentence = {"5", "*", "2"};
-        double res = enumCalculator.calculateOperation(sentence);
-        assertThat(res).isEqualTo(10);
+    @DisplayName("'+' 연산자를 입력하면 PLUS상수를 반환한다")
+    void testFindOperator(){
+        OperatorType operatorType = OperatorType.PLUS;
+        assertThat(operatorType.findOperator("+")).isEqualTo(operatorType);
     }
 }
 
