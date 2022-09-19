@@ -5,8 +5,8 @@ import java.util.function.BiFunction;
 
 public enum OperatorType {
     PLUS("+", (num1, num2) -> num1 + num2),
-    MINUS("-", (num1, num2) -> num1 + num2),
-    MULTIPLY("*", (num1, num2) -> num1 + num2),
+    MINUS("-", (num1, num2) -> num1 - num2),
+    MULTIPLY("*", (num1, num2) -> num1 * num2),
     DIVIDE("/", (num1, num2) -> {
         if (num2 == 0) {
             throw new IllegalArgumentException("나누는 값이 0이 될 수 없습니다.");
